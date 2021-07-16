@@ -8,8 +8,8 @@
 }
 
 .text-field:focus{
+    outline: none; 
     border: 1px solid #019160;
-
 }
 .text-field::placeholder{
     font-size: 11px;

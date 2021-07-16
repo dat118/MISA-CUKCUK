@@ -20,3 +20,22 @@ background-color: #2FBE8E;
     background-color: #01B075;
 
 }
+
+.button-pagination {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #bbb;
+    font-weight: bold;
+}
+
+.button-pagination.active {
+    background-color: #2FBE8E;
+    color: #fff;
+}
+
+.button-pagination:hover {
+    background-color: #bbb;
+    color: #000;
+}
+
+

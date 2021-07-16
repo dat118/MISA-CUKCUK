@@ -1,6 +1,17 @@
+.profile-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0, 0.4);
+    display: none;
+}
+
 .profile{
     background-color: #ffffff;
     height: calc(100vh - 50px);
+    /* height: 1000px; */
     width: 700px;
     position: absolute;
     top: 24px;
@@ -34,6 +45,10 @@ top: 10px;
 border: none;
 cursor: pointer;
 }
+.profile .profile-header .button-cancel:hover{
+    background-color: #bbbbbb;
+    border-radius: 4px;
+}
 .profile .profile-pic {
     height: calc(100% - 50px - 50px );
     width: 180px;
@@ -43,12 +58,12 @@ cursor: pointer;
     
 }
 .profile .profile-pic img{
-    width: 160px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     border: 1px solid #bbbbbb;
     margin-top: 60px;
-    margin-left: 10px;
+    margin-left: 13px;
 
 }
 .profile .profile-pic p{
@@ -98,18 +113,173 @@ cursor: pointer;
 .profile-content{
     position: absolute;
     left: 180px;
+    width: 510px;
+    overflow-y: scroll;
+    height: calc(100vh - 150px);
 }
 .profile-content .person-infor{
     font-size: 150%;
+    margin-bottom: 20px ;
 }
 
 .profile-content .person-infor .p{
     margin-top: 0px;
     
 }
+.profile-content .text-field{
+    width: 200px;
+}
 .person-code{
+    
     display: flex;
+    width: 100%;
+}
+.employee-name{
+    position: absolute;
+    right: 10px;
 }
 .date-of-birth{
     display: flex;
+    align-items: center;
+    position: absolute;
+}
+.date-of-birth button{
+    width: 40px;    
+    height: 40px;
+    position: absolute;
+    right: 0px;
+    background-color: #ffffff;
+    background-image: url(../../content/icon/white-calendar-icon-png-28.jpg);
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-top: 1px solid #bbbbbb ;
+    border-right: 1px solid #bbbbbb ;
+    border-bottom: 1px solid #bbbbbb ;
+    border-radius: 0px 4px 4px 0px;
+
+}
+.date-of-birth button:hover{
+    background-color: #E9EBEE;
+}
+.person-birth{
+    display: flex;
+    width: 100%;
+    height: 57px;
+
+}
+.employee-sex{
+    position: absolute;
+    right: 0px;
+    
+}
+.employee-sex label{
+    position: relative;
+    display: flex;
+    top: 0;
+    left: -180px;
+}
+.employee-gender{
+    position: absolute;
+    right: 10px;
+    display: flex;
+}
+.employee-sex .text-field{
+    
+}
+.employee-sex .button{
+    width: 40px;    
+    height: 40px;
+    position: absolute;
+    right: 0px;
+    background-color: #ffffff;
+    background-image: url(../../content/icon/dropdown-arrow-icon-15.jpg);
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center; 
+    border-top: 1px solid #bbbbbb ;
+    border-right: 1px solid #bbbbbb ;
+    border-bottom: 1px solid #bbbbbb ;
+    border-radius: 0px 4px 4px 0px;
+}
+.employee-sex .button:hover{
+    background-color: #E9EBEE;  
+}
+.person-id{
+    display: flex;
+    width: 100%;
+}
+.realease-date{
+    position: absolute;
+    right: 175px  ;
+    
+}
+.person-email{
+    display: flex;
+    width: 100%;
+}
+
+.employee-number{
+    position: absolute;
+    right: 10px  ;
+}
+.profile-content .work-infor{
+    font-size: 150%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-content .work-infor p{
+    margin-top: 0px;
+    
+}
+
+.work-position{
+    display: flex;
+    width: 100%;
+    height: 57px;
+}
+.combobox-position{
+    
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0px;
+}
+.combobox-position .button{
+    width: 40px;    
+    height: 40px;
+    position: absolute;
+    right: 0px;
+    background-color: #ffffff;
+    background-image: url(../../content/icon/dropdown-arrow-icon-15.jpg);
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center; 
+    border-top: 1px solid #bbbbbb ;
+    border-right: 1px solid #bbbbbb ;
+    border-bottom: 1px solid #bbbbbb ;
+    border-radius: 0px 4px 4px 0px;
+
+}
+.combobox-position button:hover{
+    background-color: #E9EBEE;
+}
+.work-room label{
+    left: -167px;
+}
+.work-tax{
+    display: flex;
+    width: 100%;
+    height: 57px;  
+}
+
+.work-time{
+    display: flex;
+    width: 100%;
+    height: 57px;  
+    margin-bottom: 20px;
+}
+#work-status{
+    left: -111px;
 }

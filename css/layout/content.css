@@ -36,18 +36,40 @@
 
 .filter-bar .filter-left{
 padding: 16px;
+display: flex;
 }
 
-.filter-bar .filter-left .text-field{
+.filter-bar .filter-left .filter-left-search .text-field {
     background-image: url(../../content/icon/search.png);
     background-position: 16px center;
     background-repeat:no-repeat ;
     padding-left: 40px;
-
-
 }
 
-.filter-bar .filter-left .filter-select{
+
+.combobox{
+    display: flex;
+    margin: 0 0 0 25px ;
+    
+}
+
+.combobox .text-field{
+    border-radius:4px 0px 0px 4px ;
+    background-image: none;
+    width: 150px;
+}
+.combobox .button{
+    border-radius: 0px 4px 4px 0px ;
+    width: 40px;
+    background-color: #ffffff;
+    border: 1px solid #bbbbbb;
+    background-image: url(../../content/icon/dropdown-arrow-icon-15.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+
+/* .filter-bar .filter-left .filter-select{
     height: 40px;
     color: #bbbbbb;
     border: 1px solid #bbbbbb;
@@ -58,7 +80,7 @@ padding: 16px;
 }
 .filter-bar .filter-left .filter-selec:focus{
     border: 1px solid #019160
-}
+} */
 .filter-bar .filter-right{
 position: absolute;
 right: 16px;
@@ -116,15 +138,20 @@ background-color: #ffffff;
 .grid td{
     padding-left: 16px;
     white-space: nowrap;
+
 }
 
 .grid thead {
     position: sticky;
     top: 0;
 }
-.grid tr:nth-child(odd){
-    background-color: #E9EBEE;
+.grid tr:hover{
+    cursor: pointer;
+    background-color: #2FBE8E;
 }
+/* .grid tr:nth-child(odd){
+    background-color: #E9EBEE;
+} */
 .grid .scroll-table{
     overflow: scroll;
 }
@@ -173,4 +200,8 @@ background-color: #ffffff;
     right: 16px;
     text-align: center;
     
+}
+.text-align-left{
+    text-align: end;
+   
 }
