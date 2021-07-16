@@ -1,0 +1,115 @@
+.profile{
+    background-color: #ffffff;
+    height: calc(100vh - 50px);
+    width: 700px;
+    position: absolute;
+    top: 24px;
+    left: calc(50% - 350px);
+    border-radius: 4px;
+    /* visibility: hidden; */
+}
+.profile .profile-header{
+    height: 50px;
+    width: 100%;
+    background-color:#ffffff;
+    border-radius: 4px;
+    display: flex;
+    border: none;
+}
+.profile .profile-header .profile-name{
+    font-weight: bold;
+    padding-left: 16px;
+    font-size: 20px;
+}
+.profile .profile-header .button-cancel{
+background-color:#ffffff;
+background-image: url(../../content/icon/x.svg);
+background-position: center;
+background-repeat: no-repeat;
+height: 25px;
+width: 25px;
+position: absolute;
+right: 10px;
+top: 10px;
+border: none;
+cursor: pointer;
+}
+.profile .profile-pic {
+    height: calc(100% - 50px - 50px );
+    width: 180px;
+    position: absolute;
+    left: 0px;
+    top: 51px;
+    
+}
+.profile .profile-pic img{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 1px solid #bbbbbb;
+    margin-top: 60px;
+    margin-left: 10px;
+
+}
+.profile .profile-pic p{
+    display: flex;
+    justify-content: center;
+   flex-wrap: wrap;
+   padding: 0px;
+   margin: 0px;
+   text-align: center;
+}
+
+.profile .profile-paging{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    position:absolute;
+    bottom: 0px;
+    background-color: #E9EBEE;
+
+}
+.profile-paging .paging-button{
+    display: flex;
+    position: absolute;
+    right: 10px;
+}
+.profile-paging .button{
+    
+    margin-top: 5px;
+}
+.profile-paging .button img{
+    height: 25px;
+    width: 25px;
+    margin-right: 8px;
+}
+.profile-paging .paging-cancel{
+    background-color: #E9EBEE;
+    border: none;
+    height: 40px;
+    margin-top: 5px;
+    cursor: pointer;
+    margin-right: 10px;  
+    border-radius: 4px; 
+}
+.profile-paging .paging-cancel:hover{
+    background-color: #bbbbbb;
+}
+.profile-content{
+    position: absolute;
+    left: 180px;
+}
+.profile-content .person-infor{
+    font-size: 150%;
+}
+
+.profile-content .person-infor .p{
+    margin-top: 0px;
+    
+}
+.person-code{
+    display: flex;
+}
+.date-of-birth{
+    display: flex;
+}
