@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <link rel="stylesheet" href="../css/common/main.css">
         <link rel="stylesheet" href="../css/layout/menu.css">
         <link rel="stylesheet" href="../css/layout/header.css">
@@ -60,7 +61,7 @@
         <div class="content">
             <div class="header-content">
                 <div class="page-title">Danh sách nhân viên</div>
-                <div class="page-feature"> 
+                <div class="page-feature" id="btn-add"> 
                     <button class="button">
                         <div class="button-logo"><img src="../content/icon/add.png" alt=""></div>
                         <div class="button-value">Thêm nhân viên</div>
@@ -106,9 +107,9 @@
             <div class="grid">
                 <table>
                     <thead>
-                        <th>Mã nhân viên</th>
-                        <th>Họ và tên</th>
-                        <th>Giới tính</th>
+                        <th fieldName = "EmployeeCode">Mã nhân viên</th>
+                        <th fieldName = "FullName">Họ và tên</th>
+                        <th fieldName = "Gender">Giới tính</th>
                         <th>Ngày sinh</th>
                         <th>Điện thoại</th>
                         <th>Email</th>
@@ -119,210 +120,7 @@
                     </thead>
                 
                     <tbody>
-                        <tr>
-                            <td>MF935</td>
-                            <td>Nguyễn Đức Đạt</td>
-                            <td>Nam</td>
-                            <td>11/08/2000</td>
-                            <td>0989481493</td>
-                            <td>dat1182000@gmail.com</td>
-                            <td>Fresher</td>
-                            <td>DT & NCCN</td>
-                            <td class="text-align-left">123456</td>
-                            <td>123456</td>
-                        </tr>
-                        <tr>
-                            <td>MF935</td>
-                            <td>Nguyễn Đức Đạt</td>
-                            <td>Nam</td>
-                            <td>11/08/2000</td>
-                            <td>0989481493</td>
-                            <td>dat1182000@gmail.com</td>
-                            <td>Fresher</td>
-                            <td>DT & NCCN</td>
-                            <td class="text-align-left">123456</td>
-                            <td>123456</td>
-                        </tr>
-                        <tr>
-                            <td>MF935</td>
-                            <td>Nguyễn Đức Đạt</td>
-                            <td>Nam</td>
-                            <td>11/08/2000</td>
-                            <td>0989481493</td>
-                            <td>dat1182000@gmail.com</td>
-                            <td>Fresher</td>
-                            <td>DT & NCCN</td>
-                            <td class="text-align-left">123456</td>
-                            <td>123456</td>
-                        </tr>
-                        <tr>
-                            <td>MF935</td>
-                            <td>Nguyễn Đức Đạt</td>
-                            <td>Nam</td>
-                            <td>11/08/2000</td>
-                            <td>0989481493</td>
-                            <td>dat1182000@gmail.com</td>
-                            <td>Fresher</td>
-                            <td>DT & NCCN</td>
-                            <td class="text-align-left">123456</td>
-                            <td>123456</td>
-                        </tr>
-                        <tr>
-                            <td>MF935</td>
-                            <td>Nguyễn Đức Đạt</td>
-                            <td>Nam</td>
-                            <td>11/08/2000</td>
-                            <td>0989481493</td>
-                            <td>dat1182000@gmail.com</td>
-                            <td>Fresher</td>
-                            <td>DT & NCCN</td>
-                            <td class="text-align-left">123456</td>
-                            <td>123456</td>
-                        </tr>
-                        <tr>
-                            <td>MF935</td>
-                            <td>Nguyễn Đức Đạt</td>
-                            <td>Nam</td>
-                            <td>11/08/2000</td>
-                            <td>0989481493</td>
-                            <td>dat1182000@gmail.com</td>
-                            <td>Fresher</td>
-                            <td>DT & NCCN</td>
-                            <td class="text-align-left">123456</td>
-                            <td>123456</td>
-                        </tr>
-                        <tr>
-                            <td>MF935</td>
-                            <td>Nguyễn Đức Đạt</td>
-                            <td>Nam</td>
-                            <td>11/08/2000</td>
-                            <td>0989481493</td>
-                            <td>dat1182000@gmail.com</td>
-                            <td>Fresher</td>
-                            <td>DT & NCCN</td>
-                            <td class="text-align-left">123456</td>
-                            <td>123456</td>
-                        </tr>
-                        <tr>
-                            <td>MF935</td>
-                            <td>Nguyễn Đức Đạt</td>
-                            <td>Nam</td>
-                            <td>11/08/2000</td>
-                            <td>0989481493</td>
-                            <td>dat1182000@gmail.com</td>
-                            <td>Fresher</td>
-                            <td>DT & NCCN</td>
-                            <td class="text-align-left">123456</td>
-                            <td>123456</td>
-                        </tr>
-                        <tr>
-                            <td>MF935</td>
-                            <td>Nguyễn Đức Đạt</td>
-                            <td>Nam</td>
-                            <td>11/08/2000</td>
-                            <td>0989481493</td>
-                            <td>dat1182000@gmail.com</td>
-                            <td>Fresher</td>
-                            <td>DT & NCCN</td>
-                            <td class="text-align-left">123456</td>
-                            <td>123456</td>
-                        </tr>
-                        <tr>
-                            <td>MF935</td>
-                            <td>Nguyễn Đức Đạt</td>
-                            <td>Nam</td>
-                            <td>11/08/2000</td>
-                            <td>0989481493</td>
-                            <td>dat1182000@gmail.com</td>
-                            <td>Fresher</td>
-                            <td>DT & NCCN</td>
-                            <td class="text-align-left">123456</td>
-                            <td>123456</td>
-                        </tr>
-                        <tr>
-                            <td>MF935</td>
-                            <td>Nguyễn Đức Đạt</td>
-                            <td>Nam</td>
-                            <td>11/08/2000</td>
-                            <td>0989481493</td>
-                            <td>dat1182000@gmail.com</td>
-                            <td>Fresher</td>
-                            <td>DT & NCCN</td>
-                            <td class="text-align-left">123456</td>
-                            <td>123456</td>
-                        </tr>
-                        <tr>
-                            <td>MF935</td>
-                            <td>Nguyễn Đức Đạt</td>
-                            <td>Nam</td>
-                            <td>11/08/2000</td>
-                            <td>0989481493</td>
-                            <td>dat1182000@gmail.com</td>
-                            <td>Fresher</td>
-                            <td>DT & NCCN</td>
-                            <td class="text-align-left">123456</td>
-                            <td>123456</td>
-                        </tr>
-                        <tr>
-                            <td>MF935</td>
-                            <td>Nguyễn Đức Đạt</td>
-                            <td>Nam</td>
-                            <td>11/08/2000</td>
-                            <td>0989481493</td>
-                            <td>dat1182000@gmail.com</td>
-                            <td>Fresher</td>
-                            <td>DT & NCCN</td>
-                            <td class="text-align-left">123456</td>
-                            <td>123456</td>
-                        </tr>
-                        <tr>
-                            <td>MF935</td>
-                            <td>Nguyễn Đức Đạt</td>
-                            <td>Nam</td>
-                            <td>11/08/2000</td>
-                            <td>0989481493</td>
-                            <td>dat1182000@gmail.com</td>
-                            <td>Fresher</td>
-                            <td>DT & NCCN</td>
-                            <td class="text-align-left">123456</td>
-                            <td>123456</td>
-                        </tr>
-                        <tr>
-                            <td>MF935</td>
-                            <td>Nguyễn Đức Đạt</td>
-                            <td>Nam</td>
-                            <td>11/08/2000</td>
-                            <td>0989481493</td>
-                            <td>dat1182000@gmail.com</td>
-                            <td>Fresher</td>
-                            <td>DT & NCCN</td>
-                            <td class="text-align-left">123456</td>
-                            <td>123456</td>
-                        </tr>
-                        <tr>
-                            <td>MF935</td>
-                            <td>Nguyễn Đức Đạt</td>
-                            <td>Nam</td>
-                            <td>11/08/2000</td>
-                            <td>0989481493</td>
-                            <td>dat1182000@gmail.com</td>
-                            <td>Fresher</td>
-                            <td>DT & NCCN</td>
-                            <td class="text-align-left">123456</td>
-                            <td>123456</td>
-                        </tr>
-                        <tr>
-                            <td>MF935</td>
-                            <td>Nguyễn Đức Đạt</td>
-                            <td>Nam</td>
-                            <td>11/08/2000</td>
-                            <td>0989481493</td>
-                            <td>dat1182000@gmail.com</td>
-                            <td>Fresher</td>
-                            <td>DT & NCCN</td>
-                            <td class="text-align-left">123456</td>
-                            <td>123456</td>
-                        </tr>
+                        
                     </tbody> 
                 </table>
                     </div>
@@ -370,11 +168,11 @@
                 <div class="person-code">
                     <div class="employee-code">
                         <label style="display:flex;" for="code">Mã nhân viên (<b style="color: red;">*</b>)</label>
-                        <input class="text-field" type="text" id="code" >
+                        <input class="text-field require" type="text" id="code" >
                     </div>
                     <div class="employee-name">
                         <label style="display:flex;" for="name">Họ và tên (<b style="color: red;">*</b>)</label>
-                        <input class="text-field" type="text" id="name" >
+                        <input class="text-field require" type="text" id="name" >
                     </div>
                 </div>
                 <div class="person-birth">
@@ -399,7 +197,7 @@
                 <div class="person-id">
                     <div class="employee-id">
                         <label style="display:flex;" for="id">Số CMND/CCCD (<b style="color: red;">*</b>)</label>
-                        <input class="text-field" type="text" id="id" >
+                        <input class="text-field require" type="text" id="id" >
     
                     </div>
                     <div class="realease-date">
@@ -419,11 +217,11 @@
                 <div class="person-email">
                     <div class="employee-email">
                         <label style="display:flex;" for="mail">Email (<b style="color: red;">*</b>)</label>
-                        <input class="text-field" type="text" id="mail" >
+                        <input class="text-field require" placeholder="example@gmail.com" type="text" id="mail" >
                     </div>
                     <div class="employee-number">
                         <label style="display:flex;" for="number">Số điện thoại (<b style="color: red;">*</b>)</label>
-                        <input class="text-field" type="text" id="number" >
+                        <input class="text-field require" type="text" id="number" >
                     </div>
                 </div>
                 <div class="work-infor">
@@ -441,10 +239,10 @@
                     </div>
                     <div class="employee-sex">
                         <div class="work-room">
-                        <label style="display:flex;" for="sex">Phòng ban</label>
+                        <label style="display:flex;" for="department">Phòng ban</label>
                         </div>
                         <div class="employee-gender">
-                        <input class="text-field" type="text" id="sex" >
+                        <input class="text-field" type="text" id="department" >
                         <button class="button"></button>
                         <div class="data-gender">  </div>
                         </div>
@@ -452,28 +250,28 @@
                 </div>
                 <div class="work-tax">
                     <div class="employee-code">
-                    <label style="display:flex;" for="code">Mã số thuế cá nhân</label>
-                    <input class="text-field" type="text" id="code" >
+                    <label style="display:flex;" for="tax">Mã số thuế cá nhân</label>
+                    <input class="text-field" type="text" id="tax" >
                 </div>
                 <div class="employee-name">
-                    <label style="display:flex;" for="name">Mức lương cơ bản</label>
-                    <input class="text-field text-align-left" type="text" id="name" >
+                    <label style="display:flex;" for="salary">Mức lương cơ bản</label>
+                    <input class="text-field text-align-right" placeholder="VND" type="text" id="salary" >
                 </div>
                 </div>
                 <div class="work-time">
                     <div class="employee-birth">
-                        <label style="display:flex;" for="date">Ngày gia nhập công ty</label>
+                        <label style="display:flex;" for="join-date">Ngày gia nhập công ty</label>
                         <div class="date-of-birth">
-                        <input class="text-field" type="datetime" id="date" >
+                        <input class="text-field" type="datetime" id="join-date" >
                         <button class="button"></button>
                         <div class="data-date">       
                         </div>
                         </div>
                     </div>
                     <div class="employee-sex">
-                        <label id="work-status" style="display:flex;" for="sex">Tình trạng công việc</label>
+                        <label id="work-status" style="display:flex;" for="work-stt">Tình trạng công việc</label>
                         <div class="employee-gender">
-                        <input class="text-field" type="text" id="sex" >
+                        <input class="text-field" type="text" id="work-stt" >
                         <button class="button"></button>
                         <div class="data-gender">  </div>
                         </div>
@@ -483,12 +281,14 @@
             <div class="profile-paging">
                 <div class="paging-button">
                 <button class="paging-cancel">Hủy</button>
-                <button class="button"><img src="../content/icon/document-online.png" alt=""> Lưu</button>
+                <button class="button" id="btn-save" ><img src="../content/icon/document-online.png" alt=""> Lưu</button>
                 
                 </div>
             </div>
         </div>
     </div>
-    
+    <script src="../lib/jquery-3.6.0.min.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="../js/employee.js"></script>
     </body>
 </html>

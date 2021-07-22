@@ -4,7 +4,7 @@
     left: 226px;
     width: calc(100% - 226px);
     height: calc(100vh - 49px);
-    background-color: #ffffff;
+    background-color: #E9EBEE;
     
 
 }
@@ -32,6 +32,7 @@
     width: 100%;
     align-items: center;
     height: 40px;
+    margin-bottom: 10px ;
 }
 
 .filter-bar .filter-left{
@@ -85,6 +86,7 @@ display: flex;
 position: absolute;
 right: 16px;
 background-color: #ffffff;
+border-radius: 4px;
 }
 
 .button-refresh{
@@ -98,19 +100,22 @@ background-color: #ffffff;
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
+    padding: 5px;
 }
 .button-refresh:hover{
     background-color: #E9EBEE;  
 
 }
 .grid{
-    width: 100%;
+    max-width: calc(100% - 16px);
     height: calc( 100vh - 206px);
     position: absolute;
     left: 16px;
     right: 16px;
     overflow: scroll;
     padding-right: 24px;
+    margin-right: 24px;
+    font-size: 12x;
 }
 .paging-bar{
     display: flex;
@@ -133,7 +138,10 @@ background-color: #ffffff;
 
 }
 .grid table{
+    
     padding-right: 16px;
+    margin-right: 16px;
+    background-color: #ffffff;
 }
 .grid td{
     padding-left: 16px;
@@ -147,7 +155,8 @@ background-color: #ffffff;
 }
 .grid tr:hover{
     cursor: pointer;
-    background-color: #2FBE8E;
+    background-color: #2FBE8E
+    ;
 }
 /* .grid tr:nth-child(odd){
     background-color: #E9EBEE;
@@ -174,8 +183,8 @@ background-color: #ffffff;
 }
 
 .paging-bar .paging-button{
-    background-color: #ffffff;
-    border: 1px solid #bbbbbb;
+    background-color: #E9EBEE;
+    border: none;
     border-radius: 50%;
     height: 40px;
     width: 40px;
@@ -202,6 +211,16 @@ background-color: #ffffff;
     
 }
 .text-align-left{
-    text-align: end;
+    text-align: left;
    
+}
+.text-align-center{
+    text-align: center;
+}
+.text-align-right{
+    text-align: right;
+}
+
+.red-border{
+    border: 1px solid red;
 }
