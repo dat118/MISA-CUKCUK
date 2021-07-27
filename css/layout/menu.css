@@ -43,7 +43,7 @@
     color: #000000;
     cursor: pointer;
 }
-.menu-content-content:focus{
+.menu-content-content:active{
     background-color:#019160    ;
     color: #ffffff;
 }

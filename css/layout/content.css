@@ -155,8 +155,11 @@ border-radius: 4px;
 }
 .grid tr:hover{
     cursor: pointer;
-    background-color: #2FBE8E
-    ;
+    background-color: #E5E5E5;
+
+}
+.grid tr:active{
+    background-color: #EBF9F4;
 }
 /* .grid tr:nth-child(odd){
     background-color: #E9EBEE;

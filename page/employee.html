@@ -61,14 +61,15 @@
         <div class="content">
             <div class="header-content">
                 <div class="page-title">Danh sách nhân viên</div>
-                <div class="page-feature" id="btn-add"> 
-                    <button class="button">
+                <div class="page-feature" > 
+                    <button class="button" id="btn-add">
                         <div class="button-logo"><img src="../content/icon/add.png" alt=""></div>
                         <div class="button-value">Thêm nhân viên</div>
                     </button>
                 </div>
 
             </div>
+            
             <div class="filter-bar">
                 <div class="filter-left">
                     <div class="filter-left-search">
@@ -105,8 +106,9 @@
 
             </div>
             <div class="grid">
-                <table>
+                <table id="table-employee">
                     <thead>
+                        <th>#</th>
                         <th fieldName = "EmployeeCode">Mã nhân viên</th>
                         <th fieldName = "FullName">Họ và tên</th>
                         <th fieldName = "Gender">Giới tính</th>
@@ -119,7 +121,7 @@
                         <th>Tình trạng công việc</th>
                     </thead>
                 
-                    <tbody>
+                    <tbody id="tbody-employee">
                         
                     </tbody> 
                 </table>
@@ -281,6 +283,7 @@
             <div class="profile-paging">
                 <div class="paging-button">
                 <button class="paging-cancel">Hủy</button>
+                <button class="button" id="btn-delete" ><img src="../content/icon/x.svg" alt=""> Xóa</button>
                 <button class="button" id="btn-save" ><img src="../content/icon/document-online.png" alt=""> Lưu</button>
                 
                 </div>
