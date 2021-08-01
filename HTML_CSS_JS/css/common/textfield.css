@@ -1,0 +1,20 @@
+.text-field {
+    height: 36px;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    color: #000000  ;
+    padding-left: 16px;
+    width: auto;
+}
+
+.text-field:focus{
+    outline: none; 
+    border: 1px solid #019160;
+}
+.text-field::placeholder{
+    font-size: 12px;
+    color: #bbbbbb;
+    text-align: right;
+    font-style: italic;
+    padding-right: 5px; ;
+}

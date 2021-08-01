@@ -1,0 +1,49 @@
+.menu{
+    width: 225px;
+    height: 100vh;
+    background-color: #ffffff;
+    border-right: 1px solid #bbbbbb;
+   
+    
+}
+.menu .menu-logo{
+    width: 225px;
+    height:48px;
+    display: flex;
+}
+
+.menu .menu-logo .menu-logo-toggle img{
+    padding: 12px 10px 12px 16px;
+    width: 24px;
+    height: 24px;
+
+}
+.menu .menu-logo .menu-logo-logo img{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    height: 24px;
+    
+}
+.menu-content-content{
+    display: flex;
+    height: 44px;
+    line-height: 44px;
+}
+.menu-content-content .menu-content-logo{
+    height: 20px;
+    width: 20px;
+    padding: 10px 10px 10px 16px;
+}
+.menu-content-content .menu-content-name{
+    font-family: google-san-medium;
+    color: #bbbbbb;
+}
+.menu-content-content:hover{
+    background-color: #e5e5e5;
+    color: #000000;
+    cursor: pointer;
+}
+.menu-content-content:active{
+    background-color:#019160    ;
+    color: #ffffff;
+}
