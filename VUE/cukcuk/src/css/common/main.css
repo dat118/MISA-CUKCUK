@@ -1,0 +1,35 @@
+@import url(../common/button.css);
+@import url(../common/textfield.css);
+@import url(../common/icon.css);
+@import url(../common/grid.css);
+body{
+    font-family: google-san;
+    font-size: 13px;
+    padding: 0px;
+    margin: 0px;
+
+}
+@font-face {
+    font-family: google-san;
+    src: url('../../assets/font/GoogleSans-Regular.otf');
+}
+@font-face {
+    font-family: google-san-bold;
+    src: url('../../assets/font/GoogleSans-Bold.otf');
+}
+@font-face {
+    font-family: google-san-italic;
+    src: url('../../assets/font/GoogleSans-Italic.otf');
+}
+@font-face {
+    font-family: google-san-medium;
+    src: url('../../assets/font/GoogleSans-Medium.otf');
+}
+
+#app {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}

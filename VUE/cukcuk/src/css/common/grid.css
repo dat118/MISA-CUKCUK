@@ -1,0 +1,14 @@
+.grid{
+    width: calc(100% - 16px) ;
+    position: absolute;
+    right: 16px;
+
+}
+table{
+    border-spacing: 0px ;
+    width: 100%;
+    /* overflow-x: scroll; */
+}
+table th,td{
+    border-bottom:1px solid #bbbbbb ;
+}

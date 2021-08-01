@@ -1,0 +1,35 @@
+.icon-add{
+    width: 16px;
+    height: 16px;
+    background-image: url(../../assets/icon/add.png);
+    background-position: center;
+    background-repeat:no-repeat ;
+}
+.icon-next{
+    width: 16px;
+    height: 16px;
+    background-image: url(../../assets/icon/btn-next-page.svg);
+    background-position: center;
+    background-repeat:no-repeat ;
+}
+.icon-prev{
+    width: 16px;
+    height: 16px;
+    background-image: url(../../assets/icon/btn-prev-page.svg);
+    background-position: center;
+    background-repeat:no-repeat ;
+}
+.icon-first-page{
+    width: 16px;
+    height: 16px;
+    background-image: url(../../assets/icon/btn-firstpage.svg);
+    background-position: center;
+    background-repeat:no-repeat ;
+}
+.icon-last-page{
+    width: 16px;
+    height: 16px;
+    background-image: url(../../assets/icon/btn-lastpage.svg);
+    background-position: center;
+    background-repeat:no-repeat ;
+}

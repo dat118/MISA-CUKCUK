@@ -1,5 +1,6 @@
 .DS_Store
 node_modules
+src/assets/font/fontawesome-5.15.1
 /dist
 
 
