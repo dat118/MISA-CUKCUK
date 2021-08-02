@@ -25,12 +25,13 @@ width: 16px;
 height: 16px;
 padding: 0px;
 }
-.content .header-content .page-feature .button-icon{
+.content .header-content .page-feature{
     position:absolute;
     right: 16px;
     top: 8px;
     margin-bottom: 8px ;
     align-items: center;
+    display: flex;
 }
 .filter-bar{
     display: flex;

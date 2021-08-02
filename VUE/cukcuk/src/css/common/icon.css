@@ -33,3 +33,11 @@
     background-position: center;
     background-repeat:no-repeat ;
 }
+.icon-delete{
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-image: url(../../assets/icon/transparent-bin-icon-delete-icon-empty-icon-5dc7032cac0724.6832684215733235647046.png);
+    background-position: center;
+    background-repeat:no-repeat ;
+}

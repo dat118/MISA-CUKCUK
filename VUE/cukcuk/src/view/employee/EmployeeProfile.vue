@@ -30,6 +30,7 @@
                     <div class="employee-name">
                     <label style="display:flex;" for="name">Họ và tên (<b style="color: red;">*</b>)</label>
                     <TextField
+                    v-model="employees.FullName"
                     :textContent='employees.FullName'
                     idTextField="name"
                     />
@@ -38,17 +39,18 @@
                     <div class="profile-row">
                         <div class="employee-birth" style="padding-right: 15px;">
                         <label style="display:flex;" for="date">Ngày sinh</label> 
-                        <input style="width:185 px;" class="text-field" type="date" id="date" :v-model="formatDate(employees.DateOfBirth)">   
+                        <input style="width:185 px;" class="text-field" type="date" id="date" :v-model="formatTimeInPut(employees.DateOfBirth)">   
                     </div>
                     <div class="employee-sex">
                         <label style="display:flex;" for="sex">Giới tính</label> 
-                        <input class="text-field" type="text" id="sex">   
+                        <input class="text-field" type="text" id="sex" v-model="employees.GenderName">   
                     </div>
                     </div>
                     <div class="profile-row">
                         <div class="employee-id" style="padding-right: 15px;">
                         <label style="display:flex;" for="id">Số CMND/CCCD (<b style="color: red;">*</b>)</label>
                         <TextField
+                        v-model="employees.IdentityNumber"
                         :textContent='employees.IdentityNumber'
                     idTextField="id"
                     />
@@ -57,7 +59,7 @@
                     <div class="realease-date">
                         <label style="display:flex;" for="date-re">Ngày cấp</label>
                         <div class="date-of-birth">
-                        <input class="text-field" type="date" id="date-re" >
+                        <input class="text-field" type="date" id="date-re" :v-model='formatTimeInPut(employees.IdentityDate)' >
                         </div>
                     </div>
                     </div>
@@ -65,8 +67,9 @@
                         <div class="person-id-place" style="padding-right: 15px;">
                     <label style="display:flex;" for="id-place">Nơi cấp</label>
                         <TextField
+                        v-model="employees.IdentityPlace"
                         :textContent='employees.IdentityPlace'
-                    idTextField="id-place"
+                        idTextField="id-place"
                     />
                 </div>
                     </div>
@@ -74,12 +77,15 @@
                         <div class="employee-email" style="padding-right: 15px;">
                         <label style="display:flex;" for="mail">Email (<b style="color: red;">*</b>)</label>
                         <TextField
+                        v-model="employees.Email"
+                        :textContent='employees.Email'
                     idTextField="mail"
                     />
                     </div>
                     <div class="employee-number">
                         <label style="display:flex;" for="number">Số điện thoại (<b style="color: red;">*</b>)</label>
                         <TextField
+                        v-model="employees.Number"
                         :textContent='employees.PhoneNumber'
                     idTextField="number"
                     />
@@ -95,17 +101,18 @@
                     <div class="profile-row">
                         <div class="work-position" style="padding-right: 15px;">
                         <label style="display:flex;" for="position">Vị trí</label> 
-                        <input class="text-field" type="text" id="position">   
+                        <input class="text-field" type="text" id="position" v-model="employees.PosiontionName">   
                     </div>
                     <div class="employee-sex">
                         <label style="display:flex;" for="department">Phòng ban</label> 
-                        <input class="text-field" type="text" id="department">   
+                        <input class="text-field" type="text" id="department" v-model="employees.DepartmentName">   
                     </div>
                     </div>
                     <div class="profile-row">
                     <div style="padding-right: 15px;">
                     <label style="display:flex;" for="tax">Mã số thuế cá nhân</label>
                     <TextField
+                    v-model="employees.PersonalTaxCode"
                     :textContent='employees.PersonalTaxCode'
                     idTextField="tax"
                     />
@@ -124,7 +131,7 @@
                     </div>
                         <div class="work-status">
                         <label style="display:flex;" for="work-stt">Tình trạng công việc</label> 
-                        <input class="text-field" type="text" id="work-stt">   
+                        <input class="text-field" type="text" id="work-stt" v-model="employees.WorkSatus">   
                     </div>
                     </div>
 
@@ -136,7 +143,9 @@
                 <div class="paging-button">
                 <button class="paging-cancel" @click="$emit('btnCancelOnClick')">Hủy</button >
                 <!-- <button class="button" id="btn-delete"><img src="../../assets/icon/x.svg" alt=""> Xóa</button> -->
-                <button v-on:click="btnSaveOnClick" class="button" id="btn-save"><img src="../../assets/icon/document-online.png" alt=""> Lưu</button>
+                <button v-on:click="btnSaveOnClick" 
+                @click="$emit('btnCancelOnClick')"
+                class="button" id="btn-save"><img src="../../assets/icon/document-online.png" alt=""> Lưu</button>
                 
                 </div>
             </div>
@@ -178,6 +187,35 @@ props:{
     }
 },
 methods:{
+    loadData(){
+        var vm = this;
+      // Gọi API lấy dữ liệu
+        axios.get("http://cukcuk.manhnv.net/v1/Employees").then(res =>{
+            // console.log(res.data);
+            vm.employees=res.data;
+        }).catch(res =>{
+            console.log(res);
+        })
+    },
+    /***************************
+ * Định dạng ngày sinh
+ * Creator:NDDAT-31/7/2021
+ */
+    formatTimeInPut(time) {
+    var date = new Date(time);
+    if (Number.isNaN(date.getTime())) {
+        return " ";
+    } else {
+        var dd = date.getDate();
+        var mm = date.getMonth() + 1;
+        var yyyy = date.getFullYear();
+
+        dd = dd < 10 ? '0' + dd : dd;
+        mm = mm < 10 ? '0' + mm : mm;
+
+        return yyyy-mm-dd;
+    }
+},
 /***************************
  * Định dạng ngày sinh
  * Creator:NDDAT-31/7/2021
@@ -216,11 +254,17 @@ methods:{
             axios.post("http://cukcuk.manhnv.net/v1/Employees",vm.employees).then(res =>{
             console.log(res);
             alert("Thêm mới thành công");
+            vm.$emit('btnCancelOnClick');
+            vm.loadData();
+            
         }).catch({})
         } else {
             axios.put("http://cukcuk.manhnv.net/v1/Employees/"+vm.employeeID,vm.employees).then((res) =>{
             console.log(res);
             alert("Sửa thành công");
+            vm.$emit('btnCancelOnClick');
+            vm.loadData();
+
         }).catch({})    
         }
     }

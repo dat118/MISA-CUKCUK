@@ -3,12 +3,20 @@
     <div class="content">
             <div class="header-content">
                 <div class="page-title">Danh sách nhân viên</div>
-                <div class="page-feature" @click="btnAddOnClick"> 
-                    <ButtonIcon 
+                <div class="page-feature" > 
+                    <div @click="btnDeleteOnClick" style="margin-right: 10px"><ButtonIcon 
+                    idButton="btn-delete"
+                    iconChoose="icon-delete"
+                    buttonText="Xóa nhân viên"
+                    />
+                    </div>
+
+                    <div @click="btnAddOnClick"><ButtonIcon 
                     idButton="btn-add"
                     iconChoose="icon-add"
                     buttonText="Thêm nhân viên"
                     />
+                </div>
                 </div>
 
             </div>
@@ -67,8 +75,20 @@
                     </tr></thead>
                     <tbody id="tbody-employee">
             
-            <tr v-for="employee in employees" :key="employee.EmployeeId" @dblclick="dblClickOnRow(employee.EmployeeId)">
-            <td class="td-checked"> <input class="checked" type="checkbox" :value="employee.EmployeeId"> </td>
+            <tr v-for="(employee, index) in employees" :key="employee.EmployeeId"
+             @dblclick="dblClickOnRow(employee.EmployeeId)"
+             @click="getEmployeeId(employee.EmployeeId)"
+             v-bind:class="{
+                 'employeeClick': isChecked[index],
+                 }"
+             >
+            <td>
+                <div
+                class="checkbox"
+                :class="{'checked':isChecked[index]}"
+                @click="btnCheckedOnClick(index)"
+                ></div> 
+            </td>
             <td>{{employee.EmployeeCode}}</td>
             <td>{{employee.FullName}}</td>
             <td class="text-align-center">{{employee.GenderName}}</td>
@@ -169,11 +189,23 @@ export default {
         axios.get("http://cukcuk.manhnv.net/v1/Employees").then(res =>{
             // console.log(res.data);
             vm.employees=res.data;
+            this.isChecked= new Array(this.employees.length).fill(false);
         }).catch(res =>{
             console.log(res);
         })
   },
   methods: {
+      loadData(){
+          var vm = this;
+      // Gọi API lấy dữ liệu
+        axios.get("http://cukcuk.manhnv.net/v1/Employees").then(res =>{
+            // console.log(res.data);
+            vm.employees=res.data;
+            this.isChecked= new Array(this.employees.length).fill(false);
+        }).catch(res =>{
+            console.log(res);
+        })
+      },
       btnAddOnClick(){   
             
             this.hide = false; 
@@ -182,12 +214,25 @@ export default {
       },
       btnCancelOnClick(){
             this.hide = true;
-            this.formMode = 1;
-
+            this.loadData();
       },
       dblClickOnRow(employeeId){
           this.EmployeeId = employeeId;
           this.hide = false;
+          this.formMode = 1;
+      },
+      btnCheckOnClick(index){
+          this.$set(this.isChecked, index, !this.isChecked[index]);
+      },
+      btnDeleteOnClick(){
+          for (var i=0;i<this.employees.length;i++){
+              if(this.isChecked[i]){
+                  axios.delete("http://cukcuk.manhnv.net/v1/Employees"+this.employees[i].EmployeeId).then((res)=>{
+                      console.log(res);
+                      this.loadData();
+                  }).catch({})
+              }
+          }
       },
       /***************************
  * Định dạng ngày sinh
@@ -228,6 +273,8 @@ export default {
           hide: true,
           EmployeeId:'',
           formMode:1,
+          employeeClick:null,
+          isChecked:[],
       }
   },
 }

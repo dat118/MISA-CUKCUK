@@ -1,0 +1,13 @@
+.checkbox{
+    width: 16px;
+    height: 16px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}
+.checked{
+    width: 16px;
+    height: 16px;
+    background-image: url(../../assets/icon/png-transparent-white-and-green-check-logo-check-mark-emoji-computer-icons-emoticon-tick-angle-text-rectangle.png);
+    background-position: center;
+    background-repeat:no-repeat ;
+}

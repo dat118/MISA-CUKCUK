@@ -2,6 +2,7 @@
 @import url(../common/textfield.css);
 @import url(../common/icon.css);
 @import url(../common/grid.css);
+@import url(../common/checkbox.css);
 body{
     font-family: google-san;
     font-size: 13px;
