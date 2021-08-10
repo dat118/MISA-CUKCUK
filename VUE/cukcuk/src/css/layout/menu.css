@@ -36,7 +36,7 @@
 }
 .menu-content-content .menu-content-name{
     font-family: google-san-medium;
-    color: #bbbbbb;
+    color: #000000;
 }
 .menu-content-content:hover{
     background-color: #e5e5e5;
@@ -44,6 +44,8 @@
     cursor: pointer;
 }
 .menu-content-content:active{
-    background-color:#019160    ;
+    background-color:#019160;
+}
+.menu-content-content .menu-content-name:active{
     color: #ffffff;
 }

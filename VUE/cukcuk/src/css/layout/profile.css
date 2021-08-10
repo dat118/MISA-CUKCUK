@@ -9,7 +9,7 @@
     right: 0;
     background: rgba(0,0,0, 0.4);
     display: none;
-    /* visibility: hidden; */
+    
 }
 
 .profile{
@@ -91,6 +91,7 @@ cursor: pointer;
     border-bottom-left-radius: 4px;
 
 }
+
 .profile-paging .paging-button{
     display: flex;
     position: absolute;
@@ -121,7 +122,6 @@ cursor: pointer;
     left: 180px;
     width: 1000px;
     height: 470px;
-    overflow-y: scroll;
     height: calc(100vh - 150px);
     display: flex;
 }
@@ -140,7 +140,22 @@ cursor: pointer;
     font-size: 150%;
     margin-bottom: 20px ;
 }
-
+.profile-content label{
+    margin-bottom: 4px;
+}
+.employee-sex{
+    height: 60.67px;
+    z-index: 10;
+}
+.work-position{
+    height: 60.67px;
+    z-index: 10;
+    margin-right: 15px;
+}
+.work-department{
+    height: 60.67px;
+    z-index: 10;
+}
 
 .profile-content .person-infor .p{
     margin-top: 0px;
@@ -157,6 +172,7 @@ cursor: pointer;
     
 }
 
+
 .profile-row{
     display: flex;
     padding: 8px;
@@ -170,4 +186,11 @@ cursor: pointer;
 }
 #salary::placeholder{
     text-align: right;
+}
+#btn-save{
+    width: 100px;
+    margin: 5px 0px 0px;
+}
+.icon-save{
+    margin-right: 8px;
 }

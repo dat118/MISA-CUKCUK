@@ -1,6 +1,6 @@
 <template>
-<div :class="{'hidden-profile':hidden}" >
-  <div class="profile-wrapper" style="display: block;">
+<div  >
+  <div class="profile-wrapper" style="display: block;z-index: 6;" >
         <div class="profile">
             <div class="profile-header">
                 <p class="profile-name">Thông tin nhân viên</p>
@@ -25,6 +25,7 @@
                     v-model="employees.EmployeeCode"
                     :textContent='employees.EmployeeCode'
                     idTextField="code"
+                    type="text"
                     />
                     </div>
                     <div class="employee-name">
@@ -33,17 +34,28 @@
                     v-model="employees.FullName"
                     :textContent='employees.FullName'
                     idTextField="name"
+                    type="text"
                     />
                     </div>
                     </div>
                     <div class="profile-row">
                         <div class="employee-birth" style="padding-right: 15px;">
                         <label style="display:flex;" for="date">Ngày sinh</label> 
-                        <input style="width:185 px;" class="text-field" type="date" id="date" :v-model="formatTimeInPut(employees.DateOfBirth)">   
+                        <TextField
+                        type="date"
+                        v-model="employees.DateOfBirth"
+                        :textContent="employees.DateOfBirth"
+                       />
                     </div>
                     <div class="employee-sex">
                         <label style="display:flex;" for="sex">Giới tính</label> 
-                        <input class="text-field" type="text" id="sex" v-model="employees.GenderName">   
+                        <Dropdown
+                        :items = "gender"
+                        :selectedId = "employees.Gender"
+                        id = "sex"
+                        :defaultText = "employees.GenderName"
+                        v-model = "employees.Gender"
+                        />
                     </div>
                     </div>
                     <div class="profile-row">
@@ -52,14 +64,20 @@
                         <TextField
                         v-model="employees.IdentityNumber"
                         :textContent='employees.IdentityNumber'
-                    idTextField="id"
+                        idTextField="id"
+                        type="text"
                     />
     
                     </div>
                     <div class="realease-date">
                         <label style="display:flex;" for="date-re">Ngày cấp</label>
                         <div class="date-of-birth">
-                        <input class="text-field" type="date" id="date-re" :v-model='formatTimeInPut(employees.IdentityDate)' >
+                        
+                        <TextField
+                        type="date"
+                        v-model="employees.IdentityDate"
+                        :textContent="employees.IdentityDate"
+                        />
                         </div>
                     </div>
                     </div>
@@ -70,6 +88,7 @@
                         v-model="employees.IdentityPlace"
                         :textContent='employees.IdentityPlace'
                         idTextField="id-place"
+                        type="text"
                     />
                 </div>
                     </div>
@@ -79,15 +98,17 @@
                         <TextField
                         v-model="employees.Email"
                         :textContent='employees.Email'
-                    idTextField="mail"
+                        idTextField="mail"
+                        type="text"
                     />
                     </div>
                     <div class="employee-number">
                         <label style="display:flex;" for="number">Số điện thoại (<b style="color: red;">*</b>)</label>
                         <TextField
-                        v-model="employees.Number"
+                        v-model= "employees.PhoneNumber"
                         :textContent='employees.PhoneNumber'
-                    idTextField="number"
+                        idTextField="number"
+                        type="text"
                     />
                     </div>
                     </div>
@@ -99,13 +120,25 @@
                     <b style="color: #019160;">__________</b>
                 </div>
                     <div class="profile-row">
-                        <div class="work-position" style="padding-right: 15px;">
+                        <div class="work-position" >
                         <label style="display:flex;" for="position">Vị trí</label> 
-                        <input class="text-field" type="text" id="position" v-model="employees.PosiontionName">   
+                        <Dropdown
+                        :items = "position"
+                        :selectedId = "employees.PositionId"
+                        id = "position"
+                        :defaultText = "employees.PositionName"
+                        v-model = "employees.PositionId"
+                        />
                     </div>
-                    <div class="employee-sex">
+                    <div class="work-department">
                         <label style="display:flex;" for="department">Phòng ban</label> 
-                        <input class="text-field" type="text" id="department" v-model="employees.DepartmentName">   
+                          <Dropdown
+                        :items = "department"
+                        :selectedId = "employees.DepartmentId"
+                        id = "department"
+                        :defaultText = "employees.DepartmentName"
+                        v-model = "employees.DepartmentId"
+                        /> 
                     </div>
                     </div>
                     <div class="profile-row">
@@ -115,6 +148,7 @@
                     v-model="employees.PersonalTaxCode"
                     :textContent='employees.PersonalTaxCode'
                     idTextField="tax"
+                    type="text"
                     />
                 </div>
                 <div>
@@ -125,13 +159,21 @@
                     <div class="profile-row">
                         <div class="join-date" style="padding-right: 15px;">
                         <label style="display:flex;" for="join-date">Ngày gia nhập công ty</label>
-                        <div>
-                        <input class="text-field" type="date" id="join-date" >
-                        </div>
+                       <TextField
+                        type="date"
+                        v-model="employees.JoinDate"
+                        :textContent="employees.JoinDate"
+                        />
                     </div>
                         <div class="work-status">
                         <label style="display:flex;" for="work-stt">Tình trạng công việc</label> 
-                        <input class="text-field" type="text" id="work-stt" v-model="employees.WorkSatus">   
+                        <Dropdown
+                        v-model= "employees.WorkStatus"
+                        :defaultText = 'employees.WorkStatus'
+                        id="work-stt"
+                        :items = "status"
+                        :selectedId = "employees.WorkStatus"
+                    />   
                     </div>
                     </div>
 
@@ -141,15 +183,29 @@
                         
             <div class="profile-paging">
                 <div class="paging-button">
-                <button class="paging-cancel" @click="$emit('btnCancelOnClick')">Hủy</button >
-                <!-- <button class="button" id="btn-delete"><img src="../../assets/icon/x.svg" alt=""> Xóa</button> -->
-                <button v-on:click="btnSaveOnClick" 
+                <button class="paging-cancel" @click="$emit('btnCancelOnClick')" style="width: 100px; margin-right:10px">Hủy</button >
+                
+                <div v-on:click="btnPopupAppear" >
+                <ButtonIcon
+                idButton="btn-save"
+                iconChoose='icon-save'
+                buttonText="Lưu"
                 @click="$emit('btnCancelOnClick')"
-                class="button" id="btn-save"><img src="../../assets/icon/document-online.png" alt=""> Lưu</button>
+                />
+                </div>
                 
                 </div>
             </div>
     </div>
+    <Popup
+        :hide='hidePopup'
+        :subClass="popupType"
+        :btnText="btnPopup"
+        :popupTitle="popupTitle"
+        :popupContent="popupContent"
+        @btnPopupCancelOnClick="btnPopupCancelOnClick"
+        @btnPopupOnClick="btnSaveOnClick"
+        />
 </div>
 </div>
 </template>
@@ -158,24 +214,29 @@
 
 import axios from 'axios'
 // // import VueAxios from 'vue-axios'
-// import ButtonIcon from '../base/BaseButtonIcon.vue'
+import ButtonIcon from '../../components/base/BaseButtonIcon.vue'
 import TextField from '../../components/base/BaseTextField.vue'
 // import Button from '../base/BaseButton.vue'
+import dayjs from 'dayjs'
+import Dropdown from '../../components/base/BaseDropdown.vue'
+import Popup from '../../components/base/BasePopUp.vue'
 export default {
 name:'Profile',
 components:{
-    // ButtonIcon,
+    ButtonIcon,
     TextField,
+    Dropdown,
+    Popup,
     // Button,
     
 },
 
 props:{
-    hidden:{
-        type:Boolean,
-        default:true,
-        required:true,
-    },
+    // hidden:{
+    //     type:Boolean,
+    //     default:true,
+    //     required:true,
+    // },
     employeeID:{
         type:String,
         default:null,
@@ -193,29 +254,22 @@ methods:{
         axios.get("http://cukcuk.manhnv.net/v1/Employees").then(res =>{
             // console.log(res.data);
             vm.employees=res.data;
+
         }).catch(res =>{
             console.log(res);
         })
     },
-    /***************************
- * Định dạng ngày sinh
- * Creator:NDDAT-31/7/2021
- */
-    formatTimeInPut(time) {
-    var date = new Date(time);
-    if (Number.isNaN(date.getTime())) {
-        return " ";
-    } else {
-        var dd = date.getDate();
-        var mm = date.getMonth() + 1;
-        var yyyy = date.getFullYear();
-
-        dd = dd < 10 ? '0' + dd : dd;
-        mm = mm < 10 ? '0' + mm : mm;
-
-        return yyyy-mm-dd;
-    }
-},
+    btnPopupAppear(){
+        this.hidePopup = false;
+        this.popupType = 'message';
+        this.popupTitle = 'Lưu bản ghi';
+        this.popupContent = 'Bạn có muốn lưu bản ghi này không ?';
+        this.btnPopup = "Lưu"
+    },
+    btnPopupCancelOnClick(){
+        this.hidePopup = true;
+    },
+    
 /***************************
  * Định dạng ngày sinh
  * Creator:NDDAT-31/7/2021
@@ -235,6 +289,16 @@ methods:{
         return day + '/' + month + '/' + year;
     }
 },
+/***************************
+ * Định dạng ngày
+ * Creator:NDDAT-31/7/2021
+ */
+    formatDateYMD(date) {
+      if (date == null) {
+        return 0;
+      }
+      return dayjs(date).format("YYYY-MM-DD");
+    },
 /**************************
  * Định dạng tiền lương
  * Creator:NDDAT-19/7/2021
@@ -250,13 +314,14 @@ methods:{
 },
     btnSaveOnClick(){
         var vm=this;
+        // vm.employees.Salary = $('vm.employees.Salary').val().replaceAll('.','');
         if (vm.mode==0) {
             axios.post("http://cukcuk.manhnv.net/v1/Employees",vm.employees).then(res =>{
             console.log(res);
             alert("Thêm mới thành công");
             vm.$emit('btnCancelOnClick');
             vm.loadData();
-            
+            vm.hidePopup=true;
         }).catch({})
         } else {
             axios.put("http://cukcuk.manhnv.net/v1/Employees/"+vm.employeeID,vm.employees).then((res) =>{
@@ -264,16 +329,102 @@ methods:{
             alert("Sửa thành công");
             vm.$emit('btnCancelOnClick');
             vm.loadData();
-
+            vm.hidePopup=true;
         }).catch({})    
         }
     }
 },
 data() {
     return {
+        hidePopup: true,
+        popupType:'',
+        btnPopup:'',
+        popupTitle:'',
+        popupContent:'',
         employees:{},
+        department:[{
+              itemName:'Phòng Marketting',
+              itemId:'142cb08f-7c31-21fa-8e90-67245e8b283e',
+          },
+          {
+              itemName:'Phòng đào tạo',
+              itemId:'17120d02-6ab5-3e43-18cb-66948daf6128',
+          },
+          {
+              itemName:'Phòng Nhân sự',
+              itemId:'469b3ece-744a-45d5-957d-e8c757976496',
+          },
+          {
+              itemName:'Phòng Công nghệ',
+              itemId:'4e272fc4-7875-78d6-7d32-6a1673ffca7c',
+          },
+          ],
+          position:[{
+              itemName:'Giám đốc',
+              itemId:'30d41e52-5e66-72bc-6c1c-b47866e0b131',
+          },
+          {
+              itemName:'Nhân viên',
+              itemId:'548dce5f-5f29-4617-725d-e2ec561b0f41',
+          },
+          {
+              itemName:'Phó phòng',
+              itemId:'589edf01-198a-4ff5-958e-fb52fd75a1d4',
+          },
+          {
+              itemName:'Trưởng phòng',
+              itemId:'5bd71cda-209f-2ade-54d1-35c781481818',
+          },
+          
+          ],
+          gender:[{
+              itemName:'Nữ',
+              itemId:'0',
+          },
+          {
+              itemName:'Nam',
+              itemId:'1',
+          },
+          {
+              itemName:'Không xác định',
+              itemId:'2',
+          }
+
+          ],
+          status:[{
+              itemName:'Đang làm việc',
+              itemId:'0',
+          },
+          {
+              itemName:'Đang thử việc',
+              itemId:'1',
+          },
+          {
+              itemName:'Đã nghỉ việc',
+              itemId:'2',
+          }
+
+          ],
+
         
     }
+},
+mounted() {
+   var vm = this;
+    
+        // Gọi API lấy dữ liệu
+        axios.get("http://cukcuk.manhnv.net/v1/Employees/"+vm.employeeID).then(res =>{
+            console.log(res.data);
+            var em = res.data;
+            // em.Salary = vm.formatMoney(em.Salary);
+            em.IdentityDate = vm.formatDateYMD(em.IdentityDate);
+            em.JoinDate = vm.formatDateYMD(em.JoinDate);
+            em.DateOfBirth = vm.formatDateYMD(em.DateOfBirth);
+            // em.Salary = vm.formatMoney(em.Salary);
+            vm.employees=em;
+            console.log(vm.employees);
+            
+        }).catch({}) 
 },
 watch:{
     mode: function(){
@@ -296,9 +447,14 @@ watch:{
         // Gọi API lấy dữ liệu
         axios.get("http://cukcuk.manhnv.net/v1/Employees/"+vm.employeeID).then(res =>{
             console.log(res.data);
-            vm.employees=res.data;
-            vm.birthDay=vm.formatDate(res.data.DateOfBirth);
-        
+            var em = res.data;
+            // em.Salary = vm.formatMoney(em.Salary);
+            em.IdentityDate = vm.formatDateYMD(em.IdentityDate);
+            em.JoinDate = vm.formatDateYMD(em.JoinDate);
+            em.DateOfBirth = vm.formatDateYMD(em.DateOfBirth);
+            // em.Salary = vm.formatMoney(em.Salary);
+            vm.employees=em;
+            console.log(vm.employees);
             
         }).catch({})
 },

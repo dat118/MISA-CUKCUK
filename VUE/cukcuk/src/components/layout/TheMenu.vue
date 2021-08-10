@@ -21,7 +21,7 @@
                     <img class="menu-content-logo" src="../../assets/icon/dic-employee.png" alt="">
                     <div class="menu-content-name">Danh mục nhân viên</div>
                 </div>
-                <div class="menu-content-content">
+                <div class="menu-content-content" >
                     <img class="menu-content-logo" src="../../assets/icon/dic-employee.png" alt="">
                     <div class="menu-content-name">Danh mục nhân viên</div>
                 </div>

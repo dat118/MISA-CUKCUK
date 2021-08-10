@@ -3,7 +3,7 @@
     <input
       :id="idTextField"
       class="text-field"
-      type="text"
+      :type="type"
       :placeholder="placeHolder"
       v-model="dataContent"
       @change="onChange($event.target.value)"
@@ -17,7 +17,8 @@ export default {
   props: {
     placeHolder: String,
     idTextField: String,
-    textContent: String,
+    textContent: {},
+    type: String, 
   },
   data() {
     return {
@@ -42,7 +43,7 @@ export default {
 
 <style>
 .text-field {
-  height: 40px;
+  height: 38px;
   border: 1px solid #bbbbbb;
   border-radius: 4px;
   color: #000000;
@@ -62,5 +63,6 @@ export default {
   color: #bbbbbb;
   text-align: left;
   padding-left: 5px;
+  text-size-adjust:11px;
 }
 </style>

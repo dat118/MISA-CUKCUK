@@ -11,12 +11,12 @@
 .header .header-left{
     padding-left: 24px;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .header .header-left .header-left-name{
-    align-self: center;
-    
+    z-index: 6;
+    margin-top: 3px;
 }
 .header .header-left .header-left-name select{
     border: none;
@@ -45,4 +45,7 @@
 .header .header-right .header-right-name{
     padding-right: 16px; ;
     align-self: center;
+}
+.header-left-name .dropDown{
+    border: none;
 }

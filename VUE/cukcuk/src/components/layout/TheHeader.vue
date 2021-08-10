@@ -2,10 +2,12 @@
         <div class="header">
             <div class="header-left">
                 
-                <div class="header-left-name"><select name="" id="">
-                    <option value="Nhà hàng Biển Đông">Nhà hàng Biển Đông</option>
-                     <option value="Nhà hàng Biển Chết">Nhà hàng Biển Chết</option>
-                     </select>
+                <div class="header-left-name">
+                    <Dropdown style="z-index: 1;"
+                    
+                    :items = "restaurant"
+                    defaultText="Nhà Hàng biển Đông"
+                    />                     
                 </div>
             </div>
             <div class="header-right">
@@ -20,9 +22,21 @@
 </style>
 
 <script>
-
+import Dropdown from '../../components/base/BaseDropdown.vue'
 
 export default {
   name: 'Header',
+  components:{Dropdown},
+  data(){
+      return{
+      restaurant:[{
+              itemName:'Nhà Hàng Biển Đông',
+              itemId:'0',
+          },
+          {
+              itemName:'Nhà Hàng Biển Tây',
+              itemId:'1',
+          }]
+  }}
 }
 </script>

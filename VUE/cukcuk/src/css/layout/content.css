@@ -36,62 +36,35 @@ padding: 0px;
 .filter-bar{
     display: flex;
     width: 100%;
-    align-items: center;
+
     height: 40px;
     margin-bottom: 10px ;
 }
 
-.filter-bar .filter-left{
-padding: 16px;
-display: flex;
-}
+
 #filter-search{
     width: 250px;
-    
+    margin-right: 15px;
+    margin-left: 16px;
 }
 
-.filter-bar .filter-left .text-field {
+.filter-bar .text-field {
     background-image: url(../../assets/icon/search.png);
     background-position: 16px center;
     background-repeat:no-repeat ;
     padding-left: 40px;
+    border: 1px solid #E9EBEE;
+}
+.filter-bar .filter-left .text-field:focus{
+    outline: none; 
+    border: 1px solid #019160;
 }
 
 
-.combobox{
-    display: flex;
-    margin: 0 0 0 25px ;
-    
-}
 
-.combobox .text-field{
-    border-radius:4px 0px 0px 4px ;
-    background-image: none;
-    width: 150px;
-}
-.combobox .button{
-    border-radius: 0px 4px 4px 0px ;
-    width: 40px;
-    background-color: #ffffff;
-    border: 1px solid #bbbbbb;
-    background-image: url(../../assets/icon/dropdown-arrow-icon-15.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 50%;
-}
 
-/* .filter-bar .filter-left .filter-select{
-    height: 40px;
-    color: #bbbbbb;
-    border: 1px solid #bbbbbb;
-    border-radius: 4px;
-    margin: 16px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-.filter-bar .filter-left .filter-selec:focus{
-    border: 1px solid #019160
-} */
+
+ 
 .filter-bar .filter-right{
 position: absolute;
 right: 16px;
@@ -117,14 +90,13 @@ border-radius: 4px;
 
 }
 .grid{
-    max-width: calc(100% - 16px);
-    height: calc( 100vh - 206px);
+    max-width: calc(100% - 30px);
+    height: calc( 100vh - 210px);
     position: absolute;
-    left: 16px;
-    right: 16px;
+    
     overflow: scroll;
-    padding-right: 24px;
-    margin-right: 24px;
+    
+    
     font-size: 12x;
 }
 .paging-bar{
@@ -148,17 +120,24 @@ border-radius: 4px;
 
 }
 .grid table{
-    
-    padding-right: 16px;
-    margin-right: 16px;
     background-color: #ffffff;
+    overflow: scroll;
+    overflow-x: scroll;
 }
 .grid td{
     padding-left: 16px;
     white-space: nowrap;
 
 }
-
+.grid th td{
+    max-width: 150px !important;
+}
+.text-overflow{
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .grid thead {
     position: sticky;
     top: 0;
@@ -174,20 +153,38 @@ border-radius: 4px;
 /* .grid tr:nth-child(odd){
     background-color: #E9EBEE;
 } */
-.grid .scroll-table{
-    overflow: scroll;
-}
+
 ::-webkit-scrollbar {
-    width: 20px;
-  }
+    width: 5px;
+    height: 5px;
+}
+
+ ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+.paging-bar{
+    line-height: 56px;
+}
 .paging-bar .paging-left{
     height: 56px;
     padding: auto;
     padding-left: 16px;
     position: absolute;
     left: 16px;
-    text-align: center;
+    line-height: 56px;
     
+}
+.paging-bar .paging-left p{
+    margin: 0px;
 }
 .paging-bar .paging-center{
     display: flex;
@@ -223,8 +220,46 @@ border-radius: 4px;
     height: 56px;  
     position: absolute;
     right: 16px;
-    text-align: center;
+    line-height: 56px;
+    display: flex;
+}
+.paging-bar .paging-right p{
+    margin: 0;
+}
+.paging-arrow{
+    display:grid;
+    padding: 0px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.paging-right button {
+    height: 16px;
+    width: 16px;
+    padding: 0px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
     
+} 
+.paging-right button:hover{
+    background-color:#fff;
+}
+.paging-right .paging-up{
+    background-image: url(../../assets/icon/dropdown-arrow-icon-up-15.jpg); 
+    background-size: contain;  
+    background-position: center;
+    background-repeat:no-repeat ;
+}
+.paging-right .paging-down{
+    background-image: url(../../assets/icon/dropdown-arrow-icon-15.jpg); 
+    background-size: contain;  
+    background-position: center;
+    background-repeat:no-repeat ;
+}
+.paging-right button img{
+    height: 16px;
+    width: 16px;
 }
 .text-align-left{
     text-align: left;
