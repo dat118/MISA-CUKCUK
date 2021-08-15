@@ -93,6 +93,29 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "MISA.core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/MISA.core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MISA.core.dll": {}
+        }
+      },
+      "MISA.infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "MISA.core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MISA.infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MISA.infrastructure.dll": {}
+        }
       }
     }
   },
@@ -252,11 +275,23 @@
         "swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "MISA.core/1.0.0": {
+      "type": "project",
+      "path": "../MISA.core/MISA.core.csproj",
+      "msbuildProject": "../MISA.core/MISA.core.csproj"
+    },
+    "MISA.infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../MISA.infrastructure/MISA.infrastructure.csproj",
+      "msbuildProject": "../MISA.infrastructure/MISA.infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "Dapper >= 2.0.90",
+      "MISA.core >= 1.0.0",
+      "MISA.infrastructure >= 1.0.0",
       "MySqlConnector >= 1.3.11",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
@@ -292,7 +327,14 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Admin\\Misa\\NewRepo\\MISA-CUKCUK\\MISA.cukcuk\\MISA.core\\MISA.core.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Misa\\NewRepo\\MISA-CUKCUK\\MISA.cukcuk\\MISA.core\\MISA.core.csproj"
+            },
+            "C:\\Users\\Admin\\Misa\\NewRepo\\MISA-CUKCUK\\MISA.cukcuk\\MISA.infrastructure\\MISA.infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Misa\\NewRepo\\MISA-CUKCUK\\MISA.cukcuk\\MISA.infrastructure\\MISA.infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

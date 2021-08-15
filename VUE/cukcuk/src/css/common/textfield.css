@@ -4,7 +4,8 @@
     border-radius: 4px;
     color: #000000  ;
     padding-left: 16px;
-    width: 200px;
+    width: 222px;
+    box-sizing: border-box;
 }
 
 .text-field:focus{
@@ -16,4 +17,26 @@
     color: #bbbbbb;
     text-align: left;
     padding-left: 5px; ;
+}
+.text-field.money{
+    text-align: right;
+    padding-right: 50px;
+}
+.input-zone{
+    position: relative ;
+    width: 222px;
+}
+
+.input-zone .currency{
+    height: 40px;
+    width: fit-content;
+    font-style: italic;
+    line-height: 38px;
+    position: absolute !important; 
+    top:20px;
+    right:10px;
+}
+.text-field.redBorder.required{
+    border: 1px solid  #FF4747;
+    ;
 }

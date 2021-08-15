@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace MISA.cukcuk.API.Model
+namespace MISA.core.Entities
 {
     public class Customer:BaseEntity
     {
@@ -19,15 +20,15 @@ namespace MISA.cukcuk.API.Model
         /// <summary>
         /// Họ và đệm
         /// </summary>
-        public String FirstName { get; set; }
+        public String? FirstName { get; set; }
         /// <summary>
         /// Tên
         /// </summary>
-        public String LastName { get; set; }
+        public String? LastName { get; set; }
         /// <summary>
         /// Tên đầy đủ
         /// </summary>
-        public String FullName { get; set; }
+        public String? FullName { get; set; }
         /// <summary>
         /// Giới tính
         /// </summary>
@@ -35,7 +36,7 @@ namespace MISA.cukcuk.API.Model
         /// <summary>
         /// Địa chỉ
         /// </summary>
-        public String Address { get; set; }
+        public String? Address { get; set; }
         /// <summary>
         /// Ngày sinh
         /// </summary>
@@ -47,8 +48,27 @@ namespace MISA.cukcuk.API.Model
         /// <summary>
         /// Số điện thoại
         /// </summary>
-        public String  PhoneNumber { get; set; }
-
+        public String PhoneNumber { get; set; }
+        /// <summary>
+        /// Số nợ
+        /// </summary>
+        public double? DebitAmount { get; set; }
+        /// <summary>
+        /// Thẻ thành viên
+        /// </summary>
+        public String? MemberCardCode { get; set; }
+        /// <summary>
+        /// Tên Công ty
+        /// </summary>
+        public String? CompanyName { get; set; }
+        /// <summary>
+        /// Mã số thuế công ty
+        /// </summary>
+        public string? CompanyTaxCode { get; set; }
+        /// <summary>
+        /// Trạng thái
+        /// </summary>
+        public int? IsStopFollow { get; set; }
 
         #endregion
 

@@ -26,6 +26,10 @@
                     :textContent='employees.EmployeeCode'
                     idTextField="code"
                     type="text"
+                    required="required"
+                    tooltipWarning="Mã nhân viên không được bỏ trống"
+                    dataType="code"
+                    ref="neededValidate1" 
                     />
                     </div>
                     <div class="employee-name">
@@ -35,6 +39,10 @@
                     :textContent='employees.FullName'
                     idTextField="name"
                     type="text"
+                    required="required"
+                    tooltipWarning="Họ và tên không được bỏ trống"
+                    dataType="name"
+                    ref="neededValidate2" 
                     />
                     </div>
                     </div>
@@ -66,6 +74,11 @@
                         :textContent='employees.IdentityNumber'
                         idTextField="id"
                         type="text"
+                        dataType="number"
+                        required="required"
+                        tooltipWarning="CMND/CCCD không được bỏ trống"
+                        
+                        ref="neededValidate3" 
                     />
     
                     </div>
@@ -100,6 +113,10 @@
                         :textContent='employees.Email'
                         idTextField="mail"
                         type="text"
+                        dataType='email'
+                        required="required"
+                        ref="neededValidate4" 
+                        tooltipWarning="Email không hợp lệ"
                     />
                     </div>
                     <div class="employee-number">
@@ -109,6 +126,10 @@
                         :textContent='employees.PhoneNumber'
                         idTextField="number"
                         type="text"
+                        dataType="number"
+                        required="required"
+                        tooltipWarning="Số điện thoại không được bỏ trống"
+                        ref="neededValidate1" 
                     />
                     </div>
                     </div>
@@ -116,7 +137,7 @@
                 </div>
                 <div class="work-information">
                     <div class="work-infor">
-                    <b>A. THÔNG CÔNG VIỆC</b><br>
+                    <b>B. THÔNG TIN CÔNG VIỆC</b><br>
                     <b style="color: #019160;">__________</b>
                 </div>
                     <div class="profile-row">
@@ -149,11 +170,21 @@
                     :textContent='employees.PersonalTaxCode'
                     idTextField="tax"
                     type="text"
+                    
                     />
                 </div>
                 <div>
-                    <label style="display:flex;" for="salary">Mức lương cơ bản</label>
-                    <input class="text-field text-align-right" placeholder="VND" type="text" id="salary" v-model="employees.Salary">
+                    <!-- <label style="display:flex;" for="salary">Mức lương cơ bản</label> -->
+                    <TextField
+                        textLabel="Mức lương cơ bản "
+                        type="text"
+                        isMoney = true
+                        v-model="employees.Salary"
+                        :textContent="employees.Salary"
+                        dataType="money"
+                        moneyCurrency="VND"
+                        />
+                    <!-- <input class="text-field text-align-right" placeholder="VND" type="text" id="salary" v-model="employees.Salary"> -->
                 </div>
                     </div>
                     <div class="profile-row">
@@ -185,7 +216,7 @@
                 <div class="paging-button">
                 <button class="paging-cancel" @click="$emit('btnCancelOnClick')" style="width: 100px; margin-right:10px">Hủy</button >
                 
-                <div v-on:click="btnPopupAppear" >
+                <div v-on:click="checkValidation" >
                 <ButtonIcon
                 idButton="btn-save"
                 iconChoose='icon-save'
@@ -220,6 +251,7 @@ import TextField from '../../components/base/BaseTextField.vue'
 import dayjs from 'dayjs'
 import Dropdown from '../../components/base/BaseDropdown.vue'
 import Popup from '../../components/base/BasePopUp.vue'
+
 export default {
 name:'Profile',
 components:{
@@ -227,16 +259,11 @@ components:{
     TextField,
     Dropdown,
     Popup,
-    // Button,
-    
+  
 },
 
 props:{
-    // hidden:{
-    //     type:Boolean,
-    //     default:true,
-    //     required:true,
-    // },
+
     employeeID:{
         type:String,
         default:null,
@@ -244,7 +271,7 @@ props:{
     },
     mode:{
         type:Number,
-        default:0,
+        default:1,
     }
 },
 methods:{
@@ -252,12 +279,25 @@ methods:{
         var vm = this;
       // Gọi API lấy dữ liệu
         axios.get("http://cukcuk.manhnv.net/v1/Employees").then(res =>{
-            // console.log(res.data);
+            
             vm.employees=res.data;
 
         }).catch(res =>{
             console.log(res);
         })
+    },
+    checkValidation(){
+        let vm = this,
+        validateResult = true;
+
+      for (let [key] of Object.entries(vm.$refs)) {
+        if (key.includes("neededValidate") && !vm.$refs[key].inputValidation()) {
+          validateResult = false; 
+        }
+        if(validateResult==true){
+            this.btnPopupAppear();
+        }
+      }
     },
     btnPopupAppear(){
         this.hidePopup = false;
@@ -269,6 +309,11 @@ methods:{
     btnPopupCancelOnClick(){
         this.hidePopup = true;
     },
+    toastMessShow(){
+          this.toastHidden=false
+          this.toastText = "Lưu thành công"
+          this.toastType = 'message'
+      }  ,
     
 /***************************
  * Định dạng ngày sinh
@@ -295,7 +340,7 @@ methods:{
  */
     formatDateYMD(date) {
       if (date == null) {
-        return 0;
+        return null;
       }
       return dayjs(date).format("YYYY-MM-DD");
     },
@@ -313,23 +358,23 @@ methods:{
     }
 },
     btnSaveOnClick(){
-        var vm=this;
-        // vm.employees.Salary = $('vm.employees.Salary').val().replaceAll('.','');
-        if (vm.mode==0) {
+        var vm = this;
+        
+        if (vm.mode == 0) {
             axios.post("http://cukcuk.manhnv.net/v1/Employees",vm.employees).then(res =>{
             console.log(res);
-            alert("Thêm mới thành công");
             vm.$emit('btnCancelOnClick');
             vm.loadData();
             vm.hidePopup=true;
+            vm.$emit('toastMessShow');
         }).catch({})
         } else {
             axios.put("http://cukcuk.manhnv.net/v1/Employees/"+vm.employeeID,vm.employees).then((res) =>{
             console.log(res);
-            alert("Sửa thành công");
             vm.$emit('btnCancelOnClick');
             vm.loadData();
-            vm.hidePopup=true;
+            vm.hidePopup = true;
+            vm.$emit('toastMessShow');
         }).catch({})    
         }
     }
@@ -342,6 +387,9 @@ data() {
         popupTitle:'',
         popupContent:'',
         employees:{},
+        toastHidden:true,
+        toastText:'',
+        toastType:'',
         department:[{
               itemName:'Phòng Marketting',
               itemId:'142cb08f-7c31-21fa-8e90-67245e8b283e',
@@ -393,15 +441,15 @@ data() {
           ],
           status:[{
               itemName:'Đang làm việc',
-              itemId:'0',
-          },
-          {
-              itemName:'Đang thử việc',
               itemId:'1',
           },
           {
-              itemName:'Đã nghỉ việc',
+              itemName:'Đang thử việc',
               itemId:'2',
+          },
+          {
+              itemName:'Đã nghỉ việc',
+              itemId:'3',
           }
 
           ],
@@ -411,54 +459,26 @@ data() {
 },
 mounted() {
    var vm = this;
-    
-        // Gọi API lấy dữ liệu
-        axios.get("http://cukcuk.manhnv.net/v1/Employees/"+vm.employeeID).then(res =>{
-            console.log(res.data);
-            var em = res.data;
-            // em.Salary = vm.formatMoney(em.Salary);
-            em.IdentityDate = vm.formatDateYMD(em.IdentityDate);
-            em.JoinDate = vm.formatDateYMD(em.JoinDate);
-            em.DateOfBirth = vm.formatDateYMD(em.DateOfBirth);
-            // em.Salary = vm.formatMoney(em.Salary);
-            vm.employees=em;
-            console.log(vm.employees);
-            
-        }).catch({}) 
-},
-watch:{
-    mode: function(){
-    if (this.mode == 0){
-        var vm = this;
-    
+        if (vm.mode == 0){
         // Gọi API lấy mã nhân viên
         axios.get("http://cukcuk.manhnv.net/v1/Employees/NewEmployeeCode").then(res =>{
             console.log(res.data);
             vm.employees = {};
-            vm.employees.EmployeeCode=res.data;
+            vm.employees.EmployeeCode = res.data;
         }).catch({})
 
-    }
-}, 
-    employeeID: function(){
-    // Gọi api lấy dữ liệu
-    var vm = this;
-    
+    } else {
         // Gọi API lấy dữ liệu
         axios.get("http://cukcuk.manhnv.net/v1/Employees/"+vm.employeeID).then(res =>{
             console.log(res.data);
             var em = res.data;
-            // em.Salary = vm.formatMoney(em.Salary);
             em.IdentityDate = vm.formatDateYMD(em.IdentityDate);
             em.JoinDate = vm.formatDateYMD(em.JoinDate);
             em.DateOfBirth = vm.formatDateYMD(em.DateOfBirth);
-            // em.Salary = vm.formatMoney(em.Salary);
             vm.employees=em;
-            console.log(vm.employees);
             
-        }).catch({})
-},
-
+        }).catch({}) 
+    }
 },
 
 }
@@ -466,4 +486,5 @@ watch:{
 
 <style>
 @import '../../css/layout/profile.css';
+
 </style>

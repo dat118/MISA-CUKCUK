@@ -3,13 +3,17 @@
     border-radius: 4px;
     height: 40px;
     text-align:center;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
     cursor: pointer;
     border:none;
     color: #ffffff;
     display: flex;
     align-items: center;
+}
+.button p{
+    width: 20px;
+    text-align: center;
 }
 .button:hover{
 background-color: #2FBE8E;
@@ -20,10 +24,17 @@ background-color: #2FBE8E;
     background-color: #01B075;
 
 }
+.button.isActive{
+    background-color: #01B075;
+    color: #ffffff;
+
+}
 
 .circle{
     border-radius: 50%;
     border: 1px solid #bbb;
+    text-align: center;
+    padding: auto;
 }
 .rectangle{
     width: 40px;
@@ -37,7 +48,7 @@ background-color: #2FBE8E;
     font-weight: bold;
 }
 
-.white.active {
+.white:active{
     background-color: #2FBE8E;
     color: #fff;
 }

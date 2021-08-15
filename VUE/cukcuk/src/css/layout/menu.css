@@ -2,10 +2,13 @@
     width: 225px;
     height: 100vh;
     background-color: #ffffff;
-    border-right: 1px solid #bbbbbb;
-   
-    
+     
 }
+
+.menu-logo-toggle img{
+    cursor: pointer;
+}
+
 .menu .menu-logo{
     width: 225px;
     height:48px;
@@ -32,6 +35,7 @@
 .menu-content-content .menu-content-logo{
     height: 20px;
     width: 20px;
+    margin-right: 6px;
     padding: 10px 10px 10px 16px;
 }
 .menu-content-content .menu-content-name{

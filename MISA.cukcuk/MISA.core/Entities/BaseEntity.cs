@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace MISA.cukcuk.API.Model
+namespace MISA.core.Entities
 {
     public class BaseEntity
     {

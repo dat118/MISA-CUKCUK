@@ -29,3 +29,9 @@ C:\Users\Admin\Misa\NewRepo\MISA-CUKCUK\MISA.cukcuk\MISA.cukcuk.API\obj\Debug\ne
 C:\Users\Admin\Misa\NewRepo\MISA-CUKCUK\MISA.cukcuk\MISA.cukcuk.API\obj\Debug\net5.0\MISA.cukcuk.API.genruntimeconfig.cache
 C:\Users\Admin\Misa\NewRepo\MISA-CUKCUK\MISA.cukcuk\MISA.cukcuk.API\bin\Debug\net5.0\Dapper.dll
 C:\Users\Admin\Misa\NewRepo\MISA-CUKCUK\MISA.cukcuk\MISA.cukcuk.API\bin\Debug\net5.0\MySqlConnector.dll
+C:\Users\Admin\Misa\NewRepo\MISA-CUKCUK\MISA.cukcuk\MISA.cukcuk.API\bin\Debug\net5.0\MISA.core.dll
+C:\Users\Admin\Misa\NewRepo\MISA-CUKCUK\MISA.cukcuk\MISA.cukcuk.API\bin\Debug\net5.0\MISA.infrastructure.dll
+C:\Users\Admin\Misa\NewRepo\MISA-CUKCUK\MISA.cukcuk\MISA.cukcuk.API\bin\Debug\net5.0\MISA.core.pdb
+C:\Users\Admin\Misa\NewRepo\MISA-CUKCUK\MISA.cukcuk\MISA.cukcuk.API\bin\Debug\net5.0\MISA.infrastructure.pdb
+C:\Users\Admin\Misa\NewRepo\MISA-CUKCUK\MISA.cukcuk\MISA.cukcuk.API\obj\Debug\net5.0\MISA.cukcuk.API.Properties.Resources.resources
+C:\Users\Admin\Misa\NewRepo\MISA-CUKCUK\MISA.cukcuk\MISA.cukcuk.API\obj\Debug\net5.0\MISA.cukcuk.API.csproj.GenerateResource.cache

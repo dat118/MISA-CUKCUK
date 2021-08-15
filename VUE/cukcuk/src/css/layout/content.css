@@ -5,8 +5,12 @@
     width: calc(100% - 226px);
     height: calc(100vh - 49px);
     background-color: #E9EBEE;
-    
-
+    border-left: 1px solid #bbbbbb;
+    border-top: 1px solid #bbbbbb;
+}
+.miniMenu .content{
+    left: 52px;
+    width: calc(100% - 52px);
 }
 .content .header-content{
     padding: 16px;
@@ -43,7 +47,7 @@ padding: 0px;
 
 
 #filter-search{
-    width: 250px;
+    width: 280px;
     margin-right: 15px;
     margin-left: 16px;
 }
@@ -59,12 +63,14 @@ padding: 0px;
     outline: none; 
     border: 1px solid #019160;
 }
+.filter-bar .input-zone{
+width: 310px;
 
+}
+.filter-bar .input-zone input{
+    height: 40px;
+}
 
-
-
-
- 
 .filter-bar .filter-right{
 position: absolute;
 right: 16px;
@@ -206,6 +212,7 @@ border-radius: 4px;
     margin-left: 5px;
     margin-right: 5px;
     cursor: pointer;
+    padding: auto;
 }
 .paging-bar .paging-button:hover{
     background-color: #bbbbbb;
@@ -217,19 +224,25 @@ border-radius: 4px;
     margin: auto 5px;
 }
 .paging-bar .paging-right{
-    height: 56px;  
+    height: 40px;  
     position: absolute;
+    bottom: 8px;
     right: 16px;
     line-height: 56px;
     display: flex;
+    background-color: #ffffff;
+    border-radius: 4px;
 }
 .paging-bar .paging-right p{
-    margin: 0;
+    line-height: 40px;
+    margin: auto;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 .paging-arrow{
     display:grid;
     padding: 0px;
-    margin-top: 10px;
+    margin-top: 3px;
     margin-left: 10px;
 }
 
@@ -240,22 +253,28 @@ border-radius: 4px;
     cursor: pointer;
     border: none;
     border-radius: 4px;
-    
+    background-color: #ffffff;
 } 
 .paging-right button:hover{
-    background-color:#fff;
+    background-color:#E5E5E5;
+}
+.paging-right button:active{
+    background-color: #bbbbbb;
 }
 .paging-right .paging-up{
     background-image: url(../../assets/icon/dropdown-arrow-icon-up-15.jpg); 
     background-size: contain;  
     background-position: center;
     background-repeat:no-repeat ;
+    margin-top: 4px;
 }
 .paging-right .paging-down{
     background-image: url(../../assets/icon/dropdown-arrow-icon-15.jpg); 
     background-size: contain;  
     background-position: center;
     background-repeat:no-repeat ;
+    position: absolute;
+    bottom: 0px;
 }
 .paging-right button img{
     height: 16px;

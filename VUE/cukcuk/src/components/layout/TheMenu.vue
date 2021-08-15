@@ -1,10 +1,10 @@
 <template>
     <div class="menu">
             <div class="menu-logo">
-                <div class="menu-logo-toggle"><img src="../../assets/img/toggle.png" alt=""></div>
-                <div class="menu-logo-logo"><img src="../../assets/img/cukcuk-logo.png" alt=""></div>
+                <div class="menu-logo-toggle" ><img @click="$emit('toggleMenu')" src="../../assets/img/toggle.png" alt=""></div>
+                <div class="menu-logo-logo" ><img src="../../assets/img/cukcuk-logo.png" alt=""></div>
             </div>
-            <div class="menu-content">
+            <div class="menu-content" >
                 <div class="menu-content-content">
                     <img class="menu-content-logo" src="../../assets/icon/dashboard.png" alt="">
                     <div class="menu-content-name">Tổng quan</div>

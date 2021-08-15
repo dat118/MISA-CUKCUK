@@ -1,6 +1,7 @@
 <template>
   <div>
-      <button :class="['button',shape,color]">{{Text}}</button>
+      <button :class="['button',subClass,shape,color]"
+      @click="$emit('btnClick')"><p>{{Text}}</p></button>
   </div>
 </template>
 
@@ -11,6 +12,7 @@ export default {
         Text:String,
         shape:String,
         color:String,
+        subClass:{},
     }
 }
 </script>
