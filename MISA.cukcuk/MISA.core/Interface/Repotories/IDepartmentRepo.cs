@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MISA.core.Interface.Repotories
 {
-    interface IDepartmentRepo
+    public interface IDepartmentRepo
     {
     }
 }

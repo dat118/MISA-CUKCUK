@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MISA.core.Interface.Services
 {
-    interface ICustomerGroupService
+    public interface ICustomerGroupService
     {
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MISA.core.Interface.Services
+namespace MISA.infrastructure.Repo
 {
-    public interface IPositionService
+    class DepartmentRepo
     {
     }
 }
