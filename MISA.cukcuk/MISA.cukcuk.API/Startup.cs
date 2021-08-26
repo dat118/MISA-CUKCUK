@@ -30,14 +30,18 @@ namespace MISA.cukcuk.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            var connectionString = Configuration.GetConnectionString("CukCukDatabase");
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MISA.cukcuk.API", Version = "v1" });
             });
+            // Employee
             services.AddScoped<IEmployeeRepo, EmployeeRepo>();
             services.AddScoped<IEmployeeService, EmployeeService>();
+            // Base
+            services.AddScoped(typeof(IBaseRepo<>), typeof(BaseRepo<>));
+            services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

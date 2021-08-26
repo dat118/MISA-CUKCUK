@@ -7,14 +7,8 @@ using System.Threading.Tasks;
 
 namespace MISA.core.Interface.Repotories
 {
-    public interface IEmployeeRepo
+    public interface IEmployeeRepo : IBaseRepo<Employee>
     {
-        List<Employee> GetAll();
-
-        int Add(Employee employee);
-
-        int Update(Employee employee, Guid employeeId);
-
-        int Delete(Guid employeeId);
+       
     }
 }

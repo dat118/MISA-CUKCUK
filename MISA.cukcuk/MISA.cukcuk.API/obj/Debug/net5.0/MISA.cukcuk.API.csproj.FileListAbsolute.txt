@@ -35,3 +35,6 @@ C:\Users\Admin\Misa\NewRepo\MISA-CUKCUK\MISA.cukcuk\MISA.cukcuk.API\bin\Debug\ne
 C:\Users\Admin\Misa\NewRepo\MISA-CUKCUK\MISA.cukcuk\MISA.cukcuk.API\bin\Debug\net5.0\MISA.infrastructure.pdb
 C:\Users\Admin\Misa\NewRepo\MISA-CUKCUK\MISA.cukcuk\MISA.cukcuk.API\obj\Debug\net5.0\MISA.cukcuk.API.Properties.Resources.resources
 C:\Users\Admin\Misa\NewRepo\MISA-CUKCUK\MISA.cukcuk\MISA.cukcuk.API\obj\Debug\net5.0\MISA.cukcuk.API.csproj.GenerateResource.cache
+C:\Users\Admin\Misa\NewRepo\MISA-CUKCUK\MISA.cukcuk\MISA.cukcuk.API\bin\Debug\net5.0\EPPlus.dll
+C:\Users\Admin\Misa\NewRepo\MISA-CUKCUK\MISA.cukcuk\MISA.cukcuk.API\bin\Debug\net5.0\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\Admin\Misa\NewRepo\MISA-CUKCUK\MISA.cukcuk\MISA.cukcuk.API\bin\Debug\net5.0\System.Xml.XPath.XmlDocument.dll

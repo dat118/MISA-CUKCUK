@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MISA.core.Entities
 {
-    class Department:BaseEntity
+    public class Department:BaseEntity
     {
         #region Properties
         /// <summary>

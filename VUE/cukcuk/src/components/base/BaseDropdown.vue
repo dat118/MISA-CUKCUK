@@ -6,6 +6,7 @@
       v-on-clickaway="dropDownHide"
     >
       <div class="divText">{{ currentName }}</div>
+      <div :class="['deleteButton',currentId != -1 ? 'deleteButtonShow' : '' ]" @click="deleteButtonOnClick" ><button class="xButton"></button></div>
       <div :class="['arrow', isOpen ? 'arrowUp' : 'arrowDown']"></div>
     </div>
     <transition name="openDropDown" appear>
@@ -51,12 +52,17 @@ export default {
     dropDownHide(){
       this.isOpen=false;
     },
+    deleteButtonOnClick(){
+      this.currentId= -1,
+      this.currentName= this.defaultText
+    },  
     clickItem(id,name){
       this.currentId=id,
       this.currentName=name,
       this.isOpen=false,
       this.$emit("input",id)
-    },   
+    },
+    
   },
   created() {
       this.itemList = this.items;
@@ -128,13 +134,15 @@ export default {
 }
 .item {
   height: 40px;
-  width: 220px;
+  width: 184px;
   background-color: #ffffff;
   line-height: 40px;
   z-index: 99999;
-  text-align: center;
+  /* text-align: 36px left; */
+  padding-left: 36px  ;
   margin: 0px;
   cursor: pointer;
+  
 }
 .item:hover {
   background-color: #e9ebee;
@@ -145,13 +153,13 @@ export default {
 }
 .arrowDown {
   background-image: url(../../assets/icon/dropdown-arrow-icon-15.jpg);
-  background-size: 50%;
+  background-size: 40%;
   background-position: center;
   background-repeat: no-repeat;
 }
 .arrowUp {
   background-image: url(../../assets/icon/dropdown-arrow-icon-up-15.jpg);
-  background-size: 50%;
+  background-size: 40%;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -159,8 +167,34 @@ export default {
   background-color: #019160;
   color: #ffffff;
   background-image: url(../../assets/icon/pngaaa.com-382611.png);
-  background-position: 16px center;
+  background-position: 10px center;
   background-repeat: no-repeat;
-  background-size: 7%;
+  background-size: 6%;
+}
+.xButton{
+  width: 16px;
+  height: 16px;
+  /* padding-left: 10px;
+  padding-right: 10px; */
+  background-image: url(../../assets/icon/x.svg);
+  border: none;
+  outline: none;
+  background-size: contain;
+  background-position: center;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.xButton:hover{
+  background-color: #e9ebee;
+}
+.xButton:active{
+  background-color: #bbbbbb;
+}
+.deleteButton{
+  visibility: hidden;
+}
+.deleteButtonShow{
+  visibility:visible;
 }
 </style>

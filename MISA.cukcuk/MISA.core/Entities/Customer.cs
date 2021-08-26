@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MISA.core.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace MISA.core.Entities
         /// <summary>
         /// Mã khách hàng
         /// </summary>
+        [MISARequire,MISACode]
         public string CustomerCode { get; set; }
         /// <summary>
         /// Họ và đệm
@@ -28,7 +30,8 @@ namespace MISA.core.Entities
         /// <summary>
         /// Tên đầy đủ
         /// </summary>
-        public String? FullName { get; set; }
+        [MISARequire]
+        public String FullName { get; set; }
         /// <summary>
         /// Giới tính
         /// </summary>
@@ -44,10 +47,16 @@ namespace MISA.core.Entities
         /// <summary>
         /// Email cá nhân
         /// </summary>
+        [MISAEmail]
         public String Email { get; set; }
+        /// <summary>
+        /// Nhóm khách hàng
+        /// </summary>
+        public Guid? CustomerGroupId { get; set; }
         /// <summary>
         /// Số điện thoại
         /// </summary>
+        [MISARequire]
         public String PhoneNumber { get; set; }
         /// <summary>
         /// Số nợ
@@ -69,7 +78,11 @@ namespace MISA.core.Entities
         /// Trạng thái
         /// </summary>
         public int? IsStopFollow { get; set; }
-
+        /// <summary>
+        /// Lỗi khi nhập khẩu
+        /// </summary>
+        [MISANotMap]
+        public string? Error { get; set; }
         #endregion
 
     }

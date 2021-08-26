@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace MISA.core.Interface.Services
 {
-    public interface IEmployeeService
+    public interface IEmployeeService : IBaseService<Employee>
     {
-        ServiceResult Add(Employee employee);
-
-        ServiceResult Update(Employee employee, Guid employeeId);
+        
     }
 }
