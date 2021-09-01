@@ -74,16 +74,7 @@ namespace MISA.core.Service
 
         public ServiceResult Add(MisaEntity misaEntity)
         {
-            _serviceResult.IsValid = Validation(misaEntity);
-            /*if (_serviceResult.IsValid == true)
-            {
-                _serviceResult.Data = _baseRepo.Add(misaEntity);
-            }
-            else
-            {
-                return SatusCode 
-            }
-*/
+            _serviceResult.IsValid = Validation(misaEntity);          
             return _serviceResult;
         }
 
